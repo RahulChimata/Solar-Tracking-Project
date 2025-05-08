@@ -12,6 +12,8 @@ unsigned long read_adc(int channel);
 
 void adc_init_Joy(void);
 
+void reset_adc(void); 
+
 #ifdef	__cplusplus
 }
 #endif
