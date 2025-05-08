@@ -51,16 +51,11 @@ int main(void) {
     setup();
     initServo1();
     initServo2();
-    //adc_init_Photo();
-    
     adc_init_Joy();
-    //adc_init_Photo();
-    
     joyStickSetup();
     
     setServo1(SERVO_MIN);
     setServo2(SERVO_MAX / 2 + 700);
-    //lightScan();
     
     while(1){
         delay(10);
