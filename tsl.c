@@ -34,15 +34,15 @@ uint16_t tslRead2561(uint16_t command){
     I2C2TRN = 0b01010011 ; // Slave Address 0b0101001 + 1
     while (!IFS3bits.MI2C2IF || I2C2STATbits.TRSTAT);
     
-//    // Receive
-//    I2C2CONbits.RCEN = 1; 
-//    while(!I2C2STATbits.RBF);
-//    dataLow = I2C2RCV;
-//    
-//    // First Ack
-//    I2C2CONbits.ACKDT = 0;
-//    I2C2CONbits.ACKEN = 1;
-//    while(I2C2CONbits.ACKEN);
+   // Receive
+   I2C2CONbits.RCEN = 1; 
+   while(!I2C2STATbits.RBF);
+   dataLow = I2C2RCV;
+   
+   // First Ack
+   I2C2CONbits.ACKDT = 0;
+   I2C2CONbits.ACKEN = 1;
+   while(I2C2CONbits.ACKEN);
     
     
     // Receive
@@ -59,7 +59,8 @@ uint16_t tslRead2561(uint16_t command){
     IFS3bits.MI2C2IF = 0; 
     I2C2CONbits.PEN = 1; 
     while(I2C2CONbits.PEN);
-//    dataFull = ((uint16_t)dataHigh << 8) | dataLow;
+    
+    dataFull = ((uint16_t)dataHigh << 8) | dataLow;
     return dataHigh;
 }
 
