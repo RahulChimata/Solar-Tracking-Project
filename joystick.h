@@ -14,10 +14,6 @@ extern "C" {
 
 void joyStickSetup(void);
 
-char joyStick(void);
-
-int isButtonPressed(void);
-
 void manualServo(void);
 
 #ifdef	__cplusplus
